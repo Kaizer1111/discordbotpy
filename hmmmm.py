@@ -1,6 +1,7 @@
 import discord
 import random
 from discord.ext import commands
+from discord.utils import get
 import asyncio
 
 bot = commands.Bot(command_prefix='>')
@@ -23,7 +24,12 @@ async def on_ready():
         await asyncio.sleep(5)
         game = discord.Game("개발자 : Kaizer#7037")
 
-
+@bot.command()
+async def 인증(ctx, member: discord.Member=None):
+    member = member or ctx.message.author
+    await member.add_roles(get(ctx.guild.roles, name="멤버"))
+    await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
+        
 @bot.command()
 async def ping(ctx):
     await ctx.send(f'pong! {round(round(bot.latency, 4)*1000)}ms') # 봇의 핑을 pong! 이라는 메세지와 함께 전송한다.
