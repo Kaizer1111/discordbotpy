@@ -25,6 +25,12 @@ async def on_ready():
         game = discord.Game("개발자 : Kaizer#7037")
 
 @bot.command()
+async def 인증2(ctx, member: discord.Member):
+    member = message.author
+    var = discord.utils.get(message.guild.roles, name = "멤버")
+    await member.add_role(var)
+        
+@bot.command()
 async def 인증(ctx, member: discord.Member=None):
     member = ctx.author
     role = discord.utils.get(ctx.guild.roles, name="멤버")
