@@ -29,7 +29,7 @@ async def 인증(ctx, member: discord.Member=None):
     member = ctx.author
     role = discord.utils.get(ctx.guild.roles, name="멤버")
     await member.add_roles(role)
-    await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
+    #await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
         
 @bot.command()
 async def ping(ctx):
