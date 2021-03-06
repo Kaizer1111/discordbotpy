@@ -26,8 +26,9 @@ async def on_ready():
 
 @bot.command()
 async def 인증(ctx, member: discord.Member=None):
-    member = member or ctx.message.author
-    await member.add_roles(get(ctx.guild.roles, name="멤버"))
+    member = ctx.author
+    role = discord.utils.get(ctx.guild.roles, name="멤버")
+    await member.add_roles(role)
     await ctx.channel.send(str(member)+"에게 역할이 적용되었습니다.")
         
 @bot.command()
