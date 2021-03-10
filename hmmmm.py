@@ -58,9 +58,13 @@ async def 인증(ctx, member: discord.Member = None, error):
 @bot.command()
 async def 인증(ctx, member: discord.Member=None):
     member = ctx.message.author
+    embed = discord.Embed(title="인증 완료!", description="5초 후에 역할이 지급됩니다!", colour=808000)
+    embed.set_footer(text="Kaizer#7037")
+    await ctx.send(embed=embed)
+    time.sleep(5)
     await member.add_roles(get(ctx.guild.roles, name="멤버"))
     await member.remove_roles(get(ctx.guild.roles, name="인증되지 않은 멤버"))
-    await ctx.channel.send(str(member)+"님 인증이 완료되었습니다!")
+    #await ctx.channel.send(str(member)+"님 인증이 완료되었습니다!")
 
 @bot.command()
 async def ping(ctx):
