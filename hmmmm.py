@@ -61,6 +61,7 @@ async def 인증(ctx, member: discord.Member=None):
     embed = discord.Embed(title="인증 완료!", description="5초 후에 역할이 지급됩니다!", colour=808000)
     embed.set_footer(text="Kaizer#7037")
     await ctx.send(embed=embed)
+    embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/723329000705097813/a0d9bc04dc63e6251a24fbb15faf882a.webp?size=1024')
     time.sleep(5)
     await member.add_roles(get(ctx.guild.roles, name="멤버"))
     await member.remove_roles(get(ctx.guild.roles, name="인증되지 않은 멤버"))
